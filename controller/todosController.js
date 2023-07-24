@@ -40,14 +40,6 @@ const deleteTodo = async (req, res) => {
     }
 }
 
-const changeStatusTodo = async (req, res) => {
-    try {
-        const updatedTodo = await Todo.findByIdAndUpdate(req.params.id, { status: 'completed' }, { new: true });
-        res.status(200).json({ success: true, data: updatedTodo });
-    }
-    catch (err) {
-        res.status(400).json({ success: false, message: err.message });
-    }
-}
 
-module.exports = { createTodo, allTodos, editTodo, deleteTodo, changeStatusTodo };
+
+module.exports = { createTodo, allTodos, editTodo, deleteTodo };
